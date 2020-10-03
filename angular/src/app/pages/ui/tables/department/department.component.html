@@ -1,0 +1,219 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div *ngIf="alertDelete" class="alert alert-danger alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertDeleteClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="container-fluid">
+    <app-page-title title="Department Tables" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-body">
+                        <div class="card-body">
+                            <h4 class="header-title mt-0">Create Department</h4>
+
+
+                            <form class="form-horizontal">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group row">
+                                            <label class="col-lg-2 col-form-label" for="simpleinput">ID</label>
+                                            <div class="col-lg-10">
+                                                <input type="number" class="form-control" id="simpleinput"
+                                                    [(ngModel)]="departmentervice.currentDepartment.dep_Id"
+                                                    name="dep_Id">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-2 col-form-label"
+                                                for="example-email">Department</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" id="example-email" name="example-email"
+                                                    class="form-control" placeholder="department"
+                                                    [(ngModel)]="departmentervice.currentDepartment.departmentName"
+                                                    name="departmentName">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-2 col-form-label">Faculty</label>
+                                            <div class="col-lg-10">
+
+                                                <select class="form-control"
+                                                    [(ngModel)]="departmentervice.currentDepartment.facultyName"
+                                                    name="facultyName">
+                                                    <option *ngFor="let batch of allfaculty">
+                                                        {{batch.facultyName}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                      
+
+                                        <input type="text" hidden class="form-control" id="simpleinput"
+                                            [(ngModel)]="departmentervice.currentDepartment.status" name="status">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-block btn--md btn-primary"
+                                    (click)="createOrUpdate(departmentervice.currentDepartment)">Submit</button>
+                            </form>
+
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div><!-- end col -->
+            </div>
+        </div>
+        <div class="col-lg-7">
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mt-0 mb-1">Department Tables</h4>
+
+
+
+                            <!-- Large Modal -->
+                            <ng-template #largeDataModal let-modal>
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Department</h5>
+                                    <button type="button" class="close" (click)="modal.dismiss('Cross click')"
+                                        aria-hidden="true">×</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <!--Start end row -->
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h4 class="header-title mt-0">Department Update</h4>
+
+
+                                                        <form class="form-horizontal">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-2 col-form-label"
+                                                                            for="simpleinput">ID</label>
+                                                                        <div class="col-lg-10">
+                                                                            <input type="number" class="form-control"
+                                                                                id="simpleinput"
+                                                                                [(ngModel)]="departmentervice.currentDepartment.dep_Id"
+                                                                                name="dep_Id">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label class="col-lg-2 col-form-label"
+                                                                            for="example-email">Department</label>
+                                                                        <div class="col-lg-10">
+                                                                            <input type="text" id="example-email"
+                                                                                name="example-email"
+                                                                                class="form-control"
+                                                                                placeholder="Faculty Name"
+                                                                                [(ngModel)]="departmentervice.currentDepartment.departmentName"
+                                                                                name="departmentName">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label
+                                                                            class="col-lg-2 col-form-label">Faculty</label>
+                                                                        <div class="col-lg-10">
+
+                                                                            <select class="form-control"
+                                                                                [(ngModel)]="departmentervice.currentDepartment.facultyName"
+                                                                                name="facultyName">
+                                                                                <option
+                                                                                    *ngFor="let batch of allfaculty">
+                                                                                    {{batch.facultyName}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <input type="text"  class="form-control" id="simpleinput"
+                                                                    [(ngModel)]="departmentervice.currentDepartment.status" name="status">
+
+                                                                </div>
+                                                            </div>
+                                                            <button type="button"
+                                                                class="btn btn-block btn--md btn-primary"
+                                                                (click)="createOrUpdate(departmentervice.currentDepartment)"
+                                                                (click)="modal.dismiss('Cross click')">Update</button>
+                                                        </form>
+
+
+                                                    </div> <!-- end card-body -->
+                                                </div> <!-- end card-->
+                                            </div><!-- end col -->
+                                        </div>
+
+                                    </div>
+                                    <!-- end row -->
+                                </div>
+                            </ng-template>
+
+
+
+
+
+
+                            <div class="table-responsive">
+                                <table id="courses-tabel" class="table m-0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Department Name</th>
+                                            <th>Faculty Name</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let table of allDepartment">
+                                            <td>{{table.dep_Id}}</td>
+                                            <td>{{table.departmentName}}</td>
+                                            <td>{{table.facultyName}}</td>
+                                            <td>{{table.status}}</td>
+
+
+                                            <td>
+                                                <div class="row icons-list-demo">
+                                                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                                                        <a href="#" class="text-danger"
+                                                            (click)="deleteCourses(table.id)"><i
+                                                                class='uil uil-trash'></i></a>
+                                                    </div>
+                                                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                                                        <a (click)="edit(table)" (click)="largeModal(largeDataModal)"><i
+                                                                class='uil uil-file-edit-alt'></i></a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end row -->
+
+
+        </div>
+
+    </div>
+
+
+</div>

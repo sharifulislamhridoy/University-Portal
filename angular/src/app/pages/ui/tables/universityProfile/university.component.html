@@ -1,0 +1,131 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div *ngIf="alertDelete" class="alert alert-danger alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertDeleteClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="container-fluid">
+    <app-page-title title="University Protal" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row"  *ngIf="auther; else notParmit">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0 mb-1">University tables</h4>      
+                            <!-- form start  -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                       
+                                        
+
+                                            <form class="form-horizontal" enctype="multipart/form-data">
+                                                <div class="row">
+                                                    <div class="col">
+
+<!--                                                         
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label" for="simpleinput">ID
+                                                                </label>
+                                                            <div class="col-lg-10">
+                                                                <input type="text" hidden  class="form-control" id="simpleinput"value=""
+                                                               name="studentsId">
+                                                            </div> 
+                                                        </div> -->
+
+
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-placeholder">Name</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Name" id="example-placeholder"
+                                                                 
+                                                                    name="name">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-email">Email</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="email" id="example-email"
+                                                                    name="example-email" class="form-control"
+                                                                    placeholder="Email"
+                                                                 
+                                                                    name="email">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-fileinput">Image Uplode</label>
+                                                            <!-- <div class="col-lg-10"> -->
+                                                                <input type="file"
+                                                                   (change)="hadalFileInput($event)"
+                                                                   name="imgUrl">
+                                                                    <img [src]="defultImage" class="avatar-lg card-img" >
+                                                                <!-- </div> -->
+                                                           
+                                                        </div>
+
+                                                    </div>
+                                                 
+                                                    <!-- serction 2 -->
+                                                    <div class="col">
+                                                        
+                                                     
+
+                                                    
+                                                    
+                                                       
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-number">Phone</label>
+                                                            <div class="col-lg-10">
+                                                                <input class="form-control" id="example-number"
+                                                                    type="text"
+                                                                   name="phone">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label" for="example-textarea">Address</label>
+                                                            <div class="col-lg-10">
+                                                                <textarea class="form-control" rows="5" id="example-textarea"   
+                                                                name="address"></textarea>
+                                                          </div>
+                                                        </div>
+
+
+                                                    
+
+
+                                                    </div>
+                                                </div>
+                                                <button type="button"
+                                                class="btn btn-block btn--md btn-primary"
+                                                (click)="createOrUpdate(studentsService.currentStudents)" 
+                                                (click)="modal.dismiss('Cross click')">Submit</button>
+                                            </form>
+
+                                        </div> <!-- end card-body -->
+                                    </div> <!-- end card-->
+                                </div><!-- end col -->
+                            </div>
+                            <!-- end row -->
+                                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end row -->
+</div>

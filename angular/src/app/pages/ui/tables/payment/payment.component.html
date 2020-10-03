@@ -1,0 +1,133 @@
+
+<div class="container-fluid">
+    <!-- <app-page-title title="Account Tables" [breadcrumbItems]="breadCrumbItems"></app-page-title> -->
+
+
+
+    <div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body p-0">
+                <h6 class="card-title border-bottom p-3 mb-0 header-title">Account Status</h6>
+                <div class="row py-1">
+                    <div class="col-xl-3 col-sm-6">
+                        <!-- stat 1 -->
+                        <div class="media p-3">
+                            <i data-feather="grid" class="align-self-center icon-dual icon-lg mr-4"></i>
+                            <div class="media-body">
+                                <h4 class="mt-0 mb-0">0.00% </h4>
+                                <span class="text-muted font-size-13">Concession Amount </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <!-- stat 2 -->
+                        <div class="media p-3">
+                            <i data-feather="check-square" class="align-self-center icon-dual icon-lg mr-4"></i>
+                            <div class="media-body">
+                                <h4 class="mt-0 mb-0">৳ {{sumDue}}</h4>
+                                <span class="text-muted">Total Payble Amount</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <!-- stat 3 -->
+                        <div class="media p-3">
+                            <i data-feather="users"
+                                class="align-self-center icon-dual icon-lg mr-4"></i>
+                            <div class="media-body">
+                                <h4 class="mt-0 mb-0">৳ {{sum}}</h4>
+                                <span class="text-muted">Total Paid Amount</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6">
+                        <!-- stat 3 -->
+                        <div class="media p-3">
+                            <i data-feather="clock"
+                                class="align-self-center icon-dual icon-lg mr-4"></i>
+                            <div class="media-body">
+                                <h4 class="mt-0 mb-0 text-danger">৳ {{dueAmount}}</h4>
+                                <span class="text-muted">Due/Payble Amount </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="content">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title mt-0 mb-1">Payment Record</h4>
+               
+      
+                        <div class="table-responsive">
+                            <table class="table m-0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Payment</th>
+                                        <th>Purpose</th>
+                                        
+                                        <th>Method</th>
+                                        <th>Date</th>
+                                        <th>Taka ৳</th>
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody>
+                         
+                                    <tr *ngFor="let table of studentPayment; let i=index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>{{table.headName}}</td>
+                                        <td>{{table.purpose}}</td>
+                                       
+                                        <td>{{table.method}}</td>
+                                        <td>{{table.datePayment}}</td>
+                                        <td>{{table.basefee}}</td>
+                                                
+                                    </tr>
+                                    
+                                    <tr>
+                                        <th scope="row" colspan="4">Taka</th>
+                                     
+                                        <th>Total =</th>
+                                        <th>৳ {{sum}}</th>
+                                    
+                                                
+                                    </tr>
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+      
+            </div>
+        </div>
+
+
+                
+
+
+
+
+
+
+      
+
+
+</div>

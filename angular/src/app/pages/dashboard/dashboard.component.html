@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row page-title align-items-center">
+    <div class="col-sm-4 col-xl-6">
+      <h4 class="mb-1 mt-0">Dashboard</h4>
+    </div>
+    <div class="col-sm-8 col-xl-6">
+      <form class="form-inline float-sm-right mt-3 mt-sm-0">
+        <div class="form-group mb-sm-0 mr-2">
+          <input type="text" class="form-control" id="dashdaterange" style="min-width: 208px;"
+            placeholder="2018-10-03 to 2018-10-10" mwlFlatpickr [convertModelValue]="true" mode="range" />
+        </div>
+        <!-- <div class="btn-group" ngbDropdown>
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" ngbDropdownToggle>
+            <i class='uil uil-file-alt mr-1'></i>Download
+            <i class="icon"><span>
+                <i data-feather="chevron-down"></i>
+              </span></i></button>
+          <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+            <a href="javascript: void(0);" class="dropdown-item notify-item">
+              <i data-feather="mail" class="icon-dual icon-xs mr-2"></i>
+              <span> Email</span>
+            </a>
+            <a href="javascript: void(0);" class="dropdown-item notify-item">
+              <i data-feather="printer" class="icon-dual icon-xs mr-2"></i>
+              <span> Print</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="javascript: void(0);" class="dropdown-item notify-item">
+              <i data-feather="file" class="icon-dual icon-xs mr-2"></i>
+              <span> Re-Generate</span>
+            </a>
+          </div>
+        </div> -->
+      </form>
+    </div>
+  </div>
+  <!-- Widget  -->
+  <div *ngIf="access; else notParmit">
+  <div class="row" >
+    <div class="col-md-6 col-xl-3">
+      <app-statchart mainTitle="Total Student" value={{totalStudent}} subValue="{{totalStudent}}%" chartColors="#5369f8"></app-statchart>
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <app-statchart mainTitle="Teacher" value={{totalProfessors}} subValue='{{totalProfessors}}%' chartColors="#f77e53"></app-statchart>
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <app-statchart mainTitle="Courses" value={{totalCourses}} subValue="{{totalCourses}}%" chartColors="#ffbe0b"></app-statchart>
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <app-statchart mainTitle="Atandance" value=11 subValue="25.16%" chartColors="#43d39e"></app-statchart>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-6 col-xl-4">
+      <app-chart chartColors="#43d39e" mainTitle="collocation" subValue="৳ 21,000"></app-chart>
+    </div>
+    <div class="col-md-6 col-xl-4">
+      <app-chart chartColors="#5369f8" mainTitle="Due" subValue="৳ 1100"></app-chart>
+    </div>
+    <div class="col-md-6 col-xl-4">
+      <app-chart chartColors="#f77e53" mainTitle="Pre-Registration " subValue="৳ 201,200"></app-chart>
+    </div>
+  </div>
+  <!-- end widget -->
+ 
+
+  <!-- <div class="col-xl-6"> -->
+  <div class="card"  *ngFor="let notis of  allNotice">
+    <div class="row no-gutters align-items-center">
+      <!-- <div class="col-md-7"> -->
+        <div class="card-body" >
+          <h5 class="card-title font-size-16">{{notis.title}}</h5>
+          <p class="card-text text-muted">{{notis.notice}}</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins
+              ago</small></p>
+        </div>
+      <!-- </div> -->
+      <div class="col-md-5">
+        <!-- <img src="assets/images/small/img-4.jpg" class="card-img" alt="..."> -->
+        <p>notice{{i}}</p>
+      </div>
+
+    <!-- </div> -->
+  </div>
+</div>
+</div>
+<ng-template #notParmit>
+  <div class="card"  *ngFor="let notis of  allNotice;let i=index">
+    <div class="row no-gutters align-items-center">
+      <div class="col-md-7">
+        <div class="card-body" >
+          <p><code>Notification {{i+1}}</code></p>
+          <h5 class="card-title font-size-16">{{notis.title}}</h5>
+          <p class="card-text text-muted">{{notis.notice}}</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins
+              ago</small></p>
+        </div>
+      </div>
+      <!-- <div class="col-md-5">
+        <img src="assets/images/small/img-4.jpg" class="card-img" alt="...">
+        <p>notice{{i}}</p>
+      </div> -->
+
+    </div>
+  </div>
+</ng-template>
+
+
+  </div>

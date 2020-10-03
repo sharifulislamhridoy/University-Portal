@@ -1,0 +1,256 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertClose()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<div *ngIf="alertDelete" class="alert alert-danger alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertDeleteClose()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+<div class="container-fluid">
+    <app-page-title title="Courses Tables" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row" >
+        <div class="col-lg-12" *ngIf="access; else notParmit">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0 mb-1">Courses tables</h4>
+
+                    
+
+
+                    <!-- Large modal -->
+                    <button type="button" class="btn btn-success" (click)="largeModal(largeDataModal)"><i data-feather="plus"></i>   Create Courses</button>
+                    <!-- Large Modal -->
+                    <ng-template #largeDataModal let-modal>
+                        <div class="modal-header">
+                            <h5 class="modal-title">Courses</h5>
+                            <button type="button" class="close" (click)="modal.dismiss('Cross click')"
+                                aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <!--Start end row -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0">Create Courses</h4>
+
+
+                                                <form class="form-horizontal">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-2 col-form-label"
+                                                                    for="simpleinput">ID</label>
+                                                                <div class="col-lg-10">
+                                                                    <input type="number" class="form-control"
+                                                                        id="simpleinput" value="1233BBA02231" 
+                                                         [(ngModel)]="courseservice.currentCourses.id" name="id">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-2 col-form-label"
+                                                                    for="example-email">Courses Name</label>
+                                                                <div class="col-lg-10">
+                                                                    <input type="text" id="example-email"
+                                                                        name="example-email" class="form-control"
+                                                                        placeholder="Courses Name"
+                                                                        [(ngModel)]="courseservice.currentCourses.coursesName" name="coursesName">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-2 col-form-label"
+                                                                    for="example-password">Course Code</label>
+                                                                <div class="col-lg-10">
+                                                                    <input type="text" class="form-control"
+                                                                        id="example-password"  placeholder="Courses Code"
+                                                                        [(ngModel)]="courseservice.currentCourses.courseCode" name="courseCode">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-2 col-form-label"
+                                                                    for="example-placeholder">Course Cradit</label>
+                                                                <div class="col-lg-10">
+                                                                    <input type="number" class="form-control"
+                                                                        placeholder="Courses Cradit"
+                                                                        id="example-placeholder"
+                                                                        [(ngModel)]="courseservice.currentCourses.courseCradit" name="courseCradit">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-2 col-form-label"
+                                                                    for="example-placeholder">Course Price</label>
+                                                                <div class="col-lg-10">
+                                                                    <input type="number" class="form-control"
+                                                                        placeholder="Courses Price"
+                                                                        id="example-placeholder"
+                                                                        [(ngModel)]="courseservice.currentCourses.coursePrice" name="coursePrice">
+                                                                </div>
+                                                            </div>
+
+
+                                                            <!-- 
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-2 col-form-label">Professor
+                                                                    Name</label>
+                                                                <div class="col-lg-10">
+                                                                    <select class="form-control custom-select">
+                                                                        <option selected>Open this select menu</option>
+                                                                        <option value="1">Maruf Hossain</option>
+                                                                        <option value="2">Andul Bari</option>
+                                                                        <option value="3">Lenin Sir</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div> -->
+
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-2 col-form-label">Professor
+                                                                    Name</label>
+                                                                <div class="col-lg-10">
+
+                                                                    <ng-select [items]="selectValue" [(ngModel)]="courseservice.currentCourses.professorName" name="professorName"></ng-select>
+                                                                </div>
+                                                            </div>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                    <button type="button"
+                                                        class="btn btn-block btn--md btn-primary" (click)="createOrUpdate(courseservice.currentCourses)" (click)="modal.dismiss('Cross click')" >Submit</button>
+                                                </form>
+
+                                            </div> <!-- end card-body -->
+                                        </div> <!-- end card-->
+                                    </div><!-- end col -->
+                                </div>
+
+                            </div>
+                            <!-- end row -->
+                        </div>
+                    </ng-template>
+
+                    <!-- <div class="col-sm-12 col-md-6">                 -->
+                    <div class="table-responsive">
+                        <table id="courses-tabel" class="table m-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Courses Code</th>
+                                    <th>Courses Cradits</th>
+                                    <th>Courses Price</th>
+                                    <th>Semester Name</th>
+                                    <th>Department Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let table of  allCourses">
+                                    <td>{{table.id}}</td>
+                                    <td>{{table.coursesName}}</td>
+                                    <td>{{table.courseCode}}</td>
+                                    <td>{{table.courseCradit}}</td>
+                                    <td>{{table.coursePrice}}</td>
+                                    <td>{{table.semesterName}}</td>
+                                    <td>{{table.departmentName}}</td>
+                                    <td>
+                                        <div class="row icons-list-demo">
+                                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                                                <a href="#" class="text-danger" (click)="deleteCourses(table.id)"><i class='uil uil-trash'></i></a> 
+                                            </div>
+                                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                                                <a (click)="edit(table)" (click)="largeModal(largeDataModal)"><i class='uil uil-file-edit-alt'></i></a>  
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <!-- </div> -->
+
+        </div>
+      </div>
+      <!-- end row -->
+
+
+
+      <ng-template #notParmit>
+        <div class="card">
+            <div class="card-body">
+
+        <div class="table-responsive">
+            <table id="courses-tabel" class="table m-0">
+                <thead>
+                    <tr>
+                    
+                        <th>Name</th>
+                        <th>Courses Code</th>
+                        <th>Courses Cradits</th>
+                        <th>Courses Price</th>
+                        <th>Courses Professors Name</th>
+                        <th>Professors Designation</th>
+                        <th>Department Name</th>
+                        <th>Faculty Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let table of  allAssignCourses;let i =index">
+                        <td>{{table.coursesName}}</td>
+                        <td>{{table.courseCode}}</td>
+                        <td>{{table.courseCradit}}</td>
+                        <td>{{table.coursePrice}}</td>
+                        <td>{{table.professorName}}</td>
+                        <td>{{table.designation}}</td>
+                        <td>{{table.departmentName}}</td>
+                        <td>{{table.facultyName}}</td>
+                        <td>
+                            <div class="row icons-list-demo">
+                               
+                                    <button type="button" class="btn btn-primary" (click)="erroModal(errorModalData); addtomainrecord(i)" [disabled]="disablebutton[i]" >Take</button>
+                                    <!-- <a (click)="edit(table)" (click)="largeModal(largeDataModal)"><i class='uil uil-file-edit-alt'></i></a>   -->
+                               
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+      </ng-template>
+
+
+     
+
+
+
+
+<ng-template #errorModalData let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Applying Pre-Registration</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-hidden="true">×</button>
+  </div>
+  <div class="modal-body text-center">
+    <!-- <i class="uil-no-entry text-warning display-3"></i> -->
+    <h4 class="text-danger mt-4">Are you sure you want to change !</h4>
+    <p class="w-75 mx-auto text-muted">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+    <!-- <input type="text"   [(ngModel)]="assignCourseservice.currentAssignCourse.coursesName" name="coursesName">
+    <input type="text"   [(ngModel)]="assignCourseservice.currentAssignCourse.courseCode" name="courseCode"> -->
+    <div class="mt-4">
+      <a href="javascript: void(0);" class="btn btn-outline-primary btn-rounded width-md"
+        (click)="modal.dismiss('Cross click')"><i data-feather="fa check"></i>Yes</a>
+    </div>
+  </div>
+</ng-template>
+</div>

@@ -1,0 +1,169 @@
+
+<!-- <div class="container-fluid">
+    <app-page-title title="Student Courses Tables" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table m-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                    <th>Batch</th>
+                                    <th>Courses</th>
+                                    <th>Teacher</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr *ngFor="let table of  allClassroutine">
+
+
+
+                                    <td>{{table.routineid}}</td>
+                                    <td>{{table.day}}</td>
+                                    <td>{{table.time}}</td>
+                                    <td>{{table.batchid}}</td>
+                                    <td>{{table.courseid}}</td>
+                                    <td>{{table.teacherid}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+</div> -->
+
+
+
+
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div *ngIf="alertDelete" class="alert alert-danger alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertDeleteClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="container-fluid">
+    <app-page-title title="Add Courses Tables" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row">
+        <div class="col-12">
+            <!-- <div class="row">
+        <div class="col-12"> -->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0">Input Add Courses</h4>
+
+
+                    <form class="form-horizontal" enctype="multipart/form-data">
+                        <div class="row">
+                            <!-- serction 2 -->
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Select Courses Name</label>
+                                    <div class="col-lg-09">
+
+                                        <select class="form-control" 
+                                           
+                                            name="coursesName"  (change)='oNchange($event)'>
+                                            <option *ngFor="let batch of allAssingnCourses">
+                                                {{batch.coursesName}}</option>
+                                        </select>
+                                        
+                                        
+                                    </div>
+
+                                    
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label"></label>
+                                    <div class="col-lg-09">
+
+                            
+                                       
+                                            <button type="button" class="btn btn-large btn--md btn-primary"
+                                    (click)="createOrUpdate(studentaccountService.currentStudentaccount)">Add Courses</button>
+                                        </div>
+                                        
+                                   
+
+                                    
+                                </div>
+
+
+                               
+
+                            </div>
+                           
+                        </div>
+                      
+                    </form>
+
+                </div> <!-- end card-body -->
+                <!--  </div> end card-->
+                <!--    </div>end col -->
+            </div>
+            <!-- end row -->
+
+        </div>
+
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0 mb-1">Add Courses tables</h4>
+
+                    <!-- <div class="col-sm-12 col-md-6">                 -->
+                    <div class="table-responsive">
+                        <table id="courses-tabel " class="table m-0">
+                            <thead>
+                                <tr>
+                                    <th>Faculty</th>
+                                    <th>Courses Name</th>
+                                    <th>Course Code</th>
+                                    <th>Course Cradit</th>
+                                    <th>Course Price</th>
+                                    <th>Professor</th>
+                             
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let table of  allstudentaccount">
+                                    <td>{{table.facultyName}}</td>
+                                    <td>{{table.coursesName}}</td>
+                                    <td>{{table.courseCode}}</td>
+                                    <td>{{table.courseCradit}}</td>
+                                    <td>{{table.coursePrice}}</td>
+                                    <td>{{table.professorName}}</td>
+                                    
+                                   
+                                   
+                           
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- </div> -->
+
+            </div>
+        </div>
+        <!-- end row -->
+    </div>

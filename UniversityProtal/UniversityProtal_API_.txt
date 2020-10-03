@@ -1,0 +1,46 @@
+http://localhost:4200/account/login?returnUrl=%2F
+
+
+--------Students API----------
+http://localhost:8084/UniversityProtal/api/s1/students/123302231
+
+--------Professor API----------
+http://localhost:8084/UniversityProtal/api/v1/professors/101
+
+--------Courses API -----------
+http://localhost:8084/UniversityProtal/api/v1/courses
+
+--------Notice API-------------
+http://localhost:8084/UniversityProtal/api/v1/notice
+
+--------Semester API-----------
+http://localhost:8084/UniversityProtal/api/s1/semester
+
+-------Batch ApI--------------
+
+http://localhost:8084/UniversityProtal/api/v1/batch
+
+---------ClassRoutine Api----------
+http://localhost:8084/UniversityProtal/api/v1/classroutine
+
+---------Department Api---------------------
+ http://localhost:8084/UniversityProtal/api/v1/department/1
+ http://localhost:8084/UniversityProtal/api/v1/department/getByName/Sechool of Busness & Ecnomics
+
+--------------Faculty Api -----------------
+ http://localhost:8084/UniversityProtal/api/v1/faculty
+
+
+--------------University Api -----------------
+ http://localhost:8084/UniversityProtal/api/v1/university
+
+
+------------courses assign ------------------
+http://localhost:8084/UniversityProtal/api/v1/assigncourses
+
+
+-----------Studentaccount---------------
+
+http://localhost:8084/UniversityProtal/api/v1/studentaccount
+
+

@@ -1,0 +1,95 @@
+
+
+<div class="container-fluid">
+    <app-page-title title="Result Table" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0 mb-1">Class Routine</h4>
+
+
+                    <div class="table-responsive">
+                        <table class="table m-0">
+                            <thead>
+                                <tr>
+                                    <th>Courses Name</th>
+                                    <th>Course Code</th>
+                                    <th>Class Test</th>
+                                    <th>Mid Term</th>
+                                    <th>Final Exm</th>
+                                    <th>Total</th>
+                                    <th>Great Point</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr *ngFor="let table of  allResult">
+
+
+                                
+                                    <td>{{table.coursesName}}</td>
+                                    <td>{{table.courseCode}}</td>
+                                    <td>{{table.classTest}}</td>
+                                    <td>{{table.midTerm}}</td>
+                                    <td>{{table.finalExm}}</td>
+                                    <td>{{table.total}}</td>
+                                    <td>{{table.greatPoint}}</td>
+
+                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end row -->
+
+    <!-- <ng-template #notParmit>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table m-0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Day</th>
+                                        <th>Time</th>
+                                        <th>Batch</th>
+                                        <th>Courses</th>
+                                        <th>Teacher</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let table of  allClassroutine">
+
+
+
+                                        <td>{{table.routineid}}</td>
+                                        <td>{{table.day}}</td>
+                                        <td>{{table.time}}</td>
+                                        <td>{{table.batchid}}</td>
+                                        <td>{{table.courseid}}</td>
+                                        <td>{{table.teacherid}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </ng-template> -->
+
+</div>

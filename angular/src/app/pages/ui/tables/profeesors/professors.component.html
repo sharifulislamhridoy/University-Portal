@@ -1,0 +1,301 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div *ngIf="alertDelete" class="alert alert-danger alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertDeleteClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="container-fluid">
+    <app-page-title title="Professors Tables" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0 mb-1">Professors Tables</h4>
+
+
+                    <!-- Large modal -->
+                    <button type="button" class="btn btn-success" (click)="extraLargeModal(extraLargeDataModal)"> <i
+                            data-feather="plus"> </i> Create Professors </button>
+                    <!-- Large Modal -->
+                    <!-- Extra large modal -->
+                    <ng-template #extraLargeDataModal let-modal>
+                        <div class="modal-header">
+                            <h5 class="modal-title">Create Professors</h5>
+                            <button type="button" class="close" (click)="modal.dismiss('Cross click')"
+                                aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="container">
+                            <!-- form start  -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="header-title mt-0">Input Professors</h4>
+                                        
+
+                                            <form class="form-horizontal" enctype="multipart/form-data">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label" for="simpleinput">ID
+                                                                </label>
+                                                            <div class="col-lg-10">
+                                                                <input type="text" class="form-control" id="simpleinput"value=""
+                                                                [(ngModel)]="professorsService.currentProfesors.id" name="id">
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-placeholder">Name</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Name" id="example-placeholder"
+                                                                    [(ngModel)]="professorsService.currentProfesors.name"
+                                                                    name="name">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-email">Email</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="email" id="example-email"
+                                                                    name="example-email" class="form-control"
+                                                                    placeholder="Email"
+                                                                    [(ngModel)]="professorsService.currentProfesors.email"
+                                                                    name="email">
+                                                            </div>
+                                                        </div>
+
+                                                        
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-password">Password</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="password" class="form-control"
+                                                                    id="example-password" value="password"
+                                                                    [(ngModel)]="professorsService.currentProfesors.password"
+                                                                    name="password">
+                                                            </div>
+                                                        </div>
+
+                                
+
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-date">Join Date</label>
+                                                            <div class="col-lg-10">
+                                                                <input class="form-control" id="example-date"
+                                                                    type="date"
+                                                                    [(ngModel)]="professorsService.currentProfesors.joinDate"
+                                                                    name="joinDate">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label">Designation</label>
+                                                            <div class="col-lg-10">
+                                                                <select class="form-control custom-select"  [(ngModel)]="professorsService.currentProfesors.designation"
+                                                                name="designation">
+                                                                    <option>Jr. Professor</option>
+                                                                    <option>Assistant Professor</option>
+                                                                    <option>Professor</option>
+                                                                    <option>Department Head</option>
+                                                                    <option>Faculty Member</option>
+                                                                 
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label">Department</label>
+                                                            <div class="col-lg-10">
+                                                                <select class="form-control custom-select" [(ngModel)]="professorsService.currentProfesors.department"
+                                                                name="department">
+                                                                    <option value="BBA-MBA">BBA-MBA</option>
+                                                                    <option value="CSE-MSE">CSE-MSE</option>
+                                                                    <option>ENG-MENG</option>
+                                                                    <option>PHE-MHE</option>
+                                                                    <option>PHD</option>
+                                                                 
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                 
+                                                    <!-- serction 2 -->
+                                                    <div class="col">
+                                                        
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-fileinput">Image Uplode</label>
+                                                            <!-- <div class="col-lg-10"> -->
+                                                                <input type="file"
+                                                                   (change)="hadalFileInput($event)"
+                                                                    [(ngModel)]="professorsService.currentProfesors.imgUrl" name="imgUrl">
+                                                                    <img [src]="defultImage" class="avatar-lg card-img" >
+                                                                <!-- </div> -->
+                                                           
+                                                        </div>
+                                                   
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-date">Birth Date</label>
+                                                            <div class="col-lg-10">
+                                                                <input class="form-control" id="example-date"
+                                                                    type="date"
+                                                                    [(ngModel)]="professorsService.currentProfesors.birthDate" name="birthDate">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-date">Gender</label>
+                                                                <div class="col-lg-10">
+                                                            <div class="custom-control custom-radio mb-2">
+                                                                <input type="radio" id="customRadio1" value="Male" class="custom-control-input"
+                                                                [(ngModel)]="professorsService.currentProfesors.gender" name="gender">
+                                                                <label class="custom-control-label" for="customRadio1">
+                                                                    Male</label>
+                                                            </div>
+                                                            <div class="custom-control custom-radio">
+                                                                <input type="radio" id="customRadio2"  value="Female" class="custom-control-input"
+                                                                    checked   [(ngModel)]="professorsService.currentProfesors.gender" name="gernder">
+                                                                <label class="custom-control-label" for="customRadio2">
+                                                                    Female
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    
+                                                       
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label"
+                                                                for="example-number">Phone</label>
+                                                            <div class="col-lg-10">
+                                                                <input class="form-control" id="example-number"
+                                                                    type="text"
+                                                                    [(ngModel)]="professorsService.currentProfesors.phone" name="phone">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label" for="example-textarea">Address</label>
+                                                            <div class="col-lg-10">
+                                                                <textarea class="form-control" rows="5" id="example-textarea"   
+                                                                [(ngModel)]="professorsService.currentProfesors.address" name="address"></textarea>
+                                                          </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-lg-2 col-form-label">Education</label>
+                                                            <div class="col-lg-10">
+                                                                <select class="form-control custom-select"   
+                                                                [(ngModel)]="professorsService.currentProfesors.education" name="education">
+                                                                    <option value="BBA-MBA">BBA-MBA</option>
+                                                                    <option value="CSE-MSE">CSE-MSE</option>
+                                                                    <option>ENG-MENG</option>
+                                                                    <option>PHE-MHE</option>
+                                                                    <option>PHD</option>
+                                                                 
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <button type="button"
+                                                class="btn btn-block btn--md btn-primary"
+                                                (click)="createOrUpdate(professorsService.currentProfesors)">Submit</button>
+                                            </form>
+
+                                        </div> <!-- end card-body -->
+                                    </div> <!-- end card-->
+                                </div><!-- end col -->
+                            </div>
+                            <!-- end row -->
+                        </div>
+                            <!--End form start  -->
+
+                        </div>
+                    </ng-template>
+                   
+                    <div class="table-responsive">
+                        <table class="table m-0">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <!-- <th>ID</th> -->
+                                    <th>Name</th>
+                                    <!-- <th>Email</th> -->
+                                    <!-- <th>Join Date</th> -->
+                                    <!-- <th>Password</th> -->
+                                    <th>Designation</th>
+                                    <th>Department</th>
+                                    <th>Gender</th>
+                                    <th>Phone</th>
+                                    <th>Brith Date</th>
+                                    <th>Address</th>
+                                  
+                                    <!-- <th>Education</th> -->
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            
+                                <tr *ngFor="let table of  allProfessors">
+                                    <td><img src="/assets/images/users/{{table.imgUrl}}" class="avatar-md rounded-circle"></td>
+
+                                    <!-- <td>{{table.id}}</td> -->
+                                    <td>{{table.name}}</td>
+                                    <!-- <td>{{table.email}}</td> -->
+                                    <!-- <td>{{table.joinDate}}</td> -->
+                                    <!-- <td>{{table.password}}</td> -->
+                                    <td>{{table.designation}}</td>
+                                    <td>{{table.department}}</td>
+                                    <td>{{table.gender}}</td>
+                                    <td>{{table.phone}}</td>
+                                    <td>{{table.birthDate}}</td>
+                                    <td>{{table.address}}</td>
+                                   
+                                    <!-- <td>{{table.education}}</td> -->
+                                    <td>
+                                        <div class="row icons-list-demo">
+                                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                                                <a href="#" class="text-danger"  (click)="deleteEmployee(table.id)"><i
+                                                        class='uil uil-trash'></i></a>
+                                            </div>
+                                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                                                <a (click)="edit(table)"
+                                                (click)="extraLargeModal(extraLargeDataModal)"><i
+                                                        class='uil uil-file-edit-alt'></i></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end row -->
+</div>

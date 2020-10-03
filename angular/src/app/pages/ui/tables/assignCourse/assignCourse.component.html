@@ -1,0 +1,133 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div *ngIf="alertDelete" class="alert alert-danger alert-dismissible fade show container-fluid" role="alert">
+    <strong>Success !</strong>Congratulations Courses submited Successfully !.
+    <button type="button" class="close" data-dismiss="alert" (click)="alertDeleteClose()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="container-fluid">
+    <app-page-title title="Assign Courses Tables" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+    <div class="row">
+        <div class="col-12">
+            <!-- <div class="row">
+        <div class="col-12"> -->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0">Input Assign Courses</h4>
+
+
+                    <form class="form-horizontal" enctype="multipart/form-data">
+                        <div class="row">
+                            <!-- serction 2 -->
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Courses Name</label>
+                                    <div class="col-lg-09">
+
+                                        <select class="form-control" 
+                                            [(ngModel)]="courseservice.currentAssignCourse.coursesName"
+                                            name="coursesName"  (change)='oNchange($event)'>
+                                            <option *ngFor="let batch of AllCourses">
+                                                {{batch.coursesName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">Professor Name</label>
+                                    <div class="col-lg-09">
+ 
+                                        <select class="form-control" 
+                                            [(ngModel)]=" courseservice.currentAssignCourse.professorName" 
+                                            name="facultyName"   (change)='valuechange($event)' >
+                                            <option *ngFor="let batch of AllProfessors">
+                                                {{batch.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-block btn--md btn-primary"
+                            (click)="createOrUpdate( courseservice.currentAssignCourse)">Submit</button>
+                    </form>
+
+                </div> <!-- end card-body -->
+                <!--  </div> end card-->
+                <!--    </div>end col -->
+            </div>
+            <!-- end row -->
+
+        </div>
+
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mt-0 mb-1">Assign Courses tables</h4>
+
+                    <!-- <div class="col-sm-12 col-md-6">                 -->
+                    <div class="table-responsive">
+                        <table id="courses-tabel " class="table m-0">
+                            <thead>
+                                <tr>
+                                    <th>Faculty</th>
+                                    <th>DP Name</th>
+                                    <th>Batch</th>
+                                    <th>Semester Name</th>
+                                    <th>Courses Name</th>
+                                    <th>Course Code</th>
+                                    <th>Course Cradit</th>
+                                    <th>Course Price</th>
+                                    <th>Professor</th>
+                                    <th>Email</th>
+                                    <th>Designation</th>
+                                    <th>Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let table of  allAssingnCourses">
+                                    <td>{{table.facultyName}}</td>
+                                    <td>{{table.departmentName}}</td>
+                                    <td>{{table.batchName}}</td>
+                                    <td>{{table.semesterName}}</td>
+                                    <td>{{table.coursesName}}</td>
+                                    <td>{{table.courseCode}}</td>
+                                    <td>{{table.courseCradit}}</td>
+                                    <td>{{table.coursePrice}}</td>
+                                    <td>{{table.professorName}}</td>
+                                    <td>{{table.email}}</td>
+                                    <td>{{table.designation}}</td>
+                                    <td>{{table.phone}}</td>
+                                    <td>
+                                    
+                                        <div class="row icons-list-demo">
+                                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                                                <a href="#" class="text-danger" (click)="deleteCourses(table.id)"><i
+                                                        class='uil uil-trash'></i></a>
+                                            </div>
+                                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                                                <a (click)="edit(table)" (click)="largeModal(largeDataModal)"><i
+                                                        class='uil uil-file-edit-alt'></i></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- </div> -->
+
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
